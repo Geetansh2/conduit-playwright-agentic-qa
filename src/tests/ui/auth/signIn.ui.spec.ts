@@ -1,4 +1,4 @@
-import { test, expect } from "../base/BaseTest.spec";
+import { test, expect } from "../base/BaseTest";
 import { AuthPage } from '../../../domain/auth/auth.page'
 import { AuthFlow } from "../../../domain/auth/auth.flow";
 import { ConfigManager } from "../../../core/config/ConfigManager";
@@ -8,7 +8,7 @@ import { allureMeta } from "../../../core/utils/AllureUtils";
 
 
 test("User login UI with correct Creds", async ({ page, allure }) => {
-  await allureMeta(allure, "LOGIN", "Authentication", "User Login - Valid Creds", "CRITICAL");
+  await allureMeta(allure,"UI", "LOGIN", "Authentication", "User Login - Valid Creds", "CRITICAL");
 
   const authPage = new AuthPage(page);
   const authFlow = new AuthFlow(authPage);
@@ -20,7 +20,7 @@ test("User login UI with correct Creds", async ({ page, allure }) => {
 });
 
 test("User login UI with wrong Creds", async ({ page, allure }) => {
-  await allureMeta(allure, "LOGIN", "Authentication", "User Login - Invalid Creds", "CRITICAL");
+  await allureMeta(allure, "UI", "LOGIN", "Authentication", "User Login - Invalid Creds", "CRITICAL");
 
   const authPage = new AuthPage(page);
   const authFlow = new AuthFlow(authPage);

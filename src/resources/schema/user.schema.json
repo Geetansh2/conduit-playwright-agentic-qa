@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "bio": {
+          "type": "null"
+        },
+        "image": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "email",
+        "token",
+        "username",
+        "bio",
+        "image"
+      ]
+    }
+  },
+  "required": [
+    "user"
+  ]
+}

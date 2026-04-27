@@ -1,6 +1,6 @@
 {
   "baseUrl": "http://localhost:4101",
-  "apiUrl": "http://localhost:3000/api",
+  "apiUrl": "http://localhost:3000",
   "user": {
     "email": "test@test.com",
     "password": "Password123"

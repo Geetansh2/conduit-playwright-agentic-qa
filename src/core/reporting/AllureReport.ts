@@ -40,6 +40,10 @@ class AllureReport {
   epic(name: string) {
     label(LabelName.EPIC, name);
   }
+
+  parentSuite(name: string){
+    label(LabelName.PARENT_SUITE, name)
+  }
 }
 
 export const allureReport = new AllureReport();
