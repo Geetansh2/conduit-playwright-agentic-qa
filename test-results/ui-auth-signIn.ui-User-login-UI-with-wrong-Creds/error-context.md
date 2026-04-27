@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: ui/auth/login.ui.spec.ts >> User login UI with wrong Creds
-- Location: src/tests/ui/auth/login.ui.spec.ts:21:5
+- Name: ui/auth/signIn.ui.spec.ts >> User login UI with wrong Creds
+- Location: src/tests/ui/auth/signIn.ui.spec.ts:22:5
 
 # Error details
 
@@ -58,42 +58,40 @@ Received string:    "email or password is invalid"
   2  | import { AuthPage } from '../../../domain/auth/auth.page'
   3  | import { AuthFlow } from "../../../domain/auth/auth.flow";
   4  | import { ConfigManager } from "../../../core/config/ConfigManager";
-  5  | 
-  6  | test("User login UI with correct Creds", async ({ page, allure }) => {
-  7  |     await allure.epic("LOGIN")
-  8  |     await allure.addFeature("Authentication");
-  9  |     await allure.addStory("User Login");
-  10 |     await allure.setSeverity("CRITICAL");
-  11 | 
-  12 |   const authPage = new AuthPage(page);
-  13 |   const authFlow = new AuthFlow(authPage);
-  14 | 
-  15 |   await allure.step("Perform login", async () => {
-  16 |     await authFlow.login("geetanshbhatia12@gmail.com", "12345");
-  17 |   });
-  18 |   await expect(page).toHaveURL(ConfigManager.get("baseUrl"));
-  19 | });
-  20 | 
-  21 | test("User login UI with wrong Creds", async ({ page, allure }) => {
-  22 |     await allure.epic("LOGIN")
-  23 |     await allure.addFeature("Authentication");
-  24 |     await allure.addStory("User Login");
-  25 |     await allure.setSeverity("CRITICAL");
-  26 | 
-  27 |   const authPage = new AuthPage(page);
-  28 |   const authFlow = new AuthFlow(authPage);
-  29 | 
-  30 |   await allure.step("Perform login", async () => {
-  31 |     await authFlow.login("test@test.com", "Password123");
-  32 |   });
-  33 | 
-  34 |   await allure.step("Validate error message", async () => {
-  35 |     const errorText = await authPage.getErrorMessage();
-> 36 |     await expect(errorText).toContain("email password is invalid");
+  5  | import { loginScenarios } from '../../../data/test-data/auth/signin.scenarios'
+  6  | import { allureMeta } from "../../../core/utils/AllureUtils";
+  7  | 
+  8  | 
+  9  | 
+  10 | test("User login UI with correct Creds", async ({ page, allure }) => {
+  11 |   await allureMeta(allure, "LOGIN", "Authentication", "User Login - Valid", "CRITICAL");
+  12 | 
+  13 |   const authPage = new AuthPage(page);
+  14 |   const authFlow = new AuthFlow(authPage);
+  15 | 
+  16 |   await allure.step("Perform login", async () => {
+  17 |     await authFlow.login(loginScenarios.validUser.email, loginScenarios.validUser.password);
+  18 |   });
+  19 |   await expect(page).toHaveURL(ConfigManager.get("baseUrl"));
+  20 | });
+  21 | 
+  22 | test("User login UI with wrong Creds", async ({ page, allure }) => {
+  23 |   await allureMeta(allure, "LOGIN", "Authentication", "User Login - Invalid", "CRITICAL");
+  24 | 
+  25 |   const authPage = new AuthPage(page);
+  26 |   const authFlow = new AuthFlow(authPage);
+  27 | 
+  28 |   await allure.step("Perform login", async () => {
+  29 |     await authFlow.login(loginScenarios.invalidUser.email, loginScenarios.invalidUser.password);
+  30 |   });
+  31 | 
+  32 |   await allure.step("Validate error message", async () => {
+  33 |     const errorText = await authPage.getErrorMessage();
+> 34 |     await expect(errorText).toContain(loginScenarios.invalidUser.expectedError);
      |                             ^ Error: expect(received).toContain(expected) // indexOf
-  37 |   });
+  35 |   });
+  36 | 
+  37 | });
   38 | 
-  39 | });
-  40 | 
-  41 | 
+  39 | 
 ```
