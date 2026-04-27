@@ -1,0 +1,14 @@
+{
+  "baseUrl": "https://prod.app.com",
+  "apiUrl": "https://api.prod.app.com",
+  "user": {
+    "email": "prod@test.com",
+    "password": "Password123"
+  },
+  "retry": {
+    "count": 2
+  },
+  "rateLimiter": {
+    "interval": 500
+  }
+}

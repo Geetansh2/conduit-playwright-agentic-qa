@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:4100",
+  "apiUrl": "http://localhost:3000/api",
+  "user": {
+    "email": "test@test.com",
+    "password": "Password123"
+  },
+  "retry": {
+    "count": 3
+  },
+  "rateLimiter": {
+    "interval": 200
+  }
+}

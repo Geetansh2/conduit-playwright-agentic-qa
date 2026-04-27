@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "types": ["node", "@playwright/test"],
+    "module": "commonjs",
+    "target": "ES6",
+    "esModuleInterop": true,
+    "strict": true
+  }
+}
