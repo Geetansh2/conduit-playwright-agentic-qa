@@ -9,7 +9,7 @@ import {
   LabelName,
 } from "allure-js-commons";
 
-class AllureReporter {
+class AllureReport {
 
   async step<T>(name: string, fn: () => Promise<T> | T): Promise<T> {
     return step(name, async () => {
@@ -42,4 +42,4 @@ class AllureReporter {
   }
 }
 
-export const allureReporter = new AllureReporter();
+export const allureReport = new AllureReport();

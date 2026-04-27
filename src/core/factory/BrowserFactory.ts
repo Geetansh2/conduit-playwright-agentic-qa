@@ -1,56 +1,57 @@
-import { Browser, BrowserContext, chromium, firefox, webkit, LaunchOptions } from "@playwright/test";
+import {
+  Browser,
+  BrowserContext,
+  chromium,
+  firefox,
+  webkit,
+  LaunchOptions,
+} from "@playwright/test";
 
-export type BrowserType = "chromium" | "firefox" | "webkit";
+export type SupportedBrowser = "chromium" | "firefox" | "webkit";
 
 export interface BrowserConfig {
-  browserType: BrowserType;
+  browserType: SupportedBrowser;
   headless?: boolean;
   viewport?: { width: number; height: number };
   slowMo?: number;
 }
 
 class BrowserFactory {
-  private browser!: Browser;
 
-  async createBrowser(config: BrowserConfig): Promise<Browser> {
-    const launchOptions: LaunchOptions = {
+  async launchBrowser(config: BrowserConfig): Promise<Browser> {
+    const options: LaunchOptions = {
       headless: config.headless ?? true,
       slowMo: config.slowMo ?? 0,
     };
 
     switch (config.browserType) {
       case "firefox":
-        this.browser = await firefox.launch(launchOptions);
-        break;
+        return await firefox.launch(options);
 
       case "webkit":
-        this.browser = await webkit.launch(launchOptions);
-        break;
+        return await webkit.launch(options);
 
-      case "chromium":
       default:
-        this.browser = await chromium.launch(launchOptions);
-        break;
+        return await chromium.launch(options);
     }
-
-    return this.browser;
   }
 
-  async createContext(config: BrowserConfig): Promise<BrowserContext> {
-    if (!this.browser) {
-      await this.createBrowser(config);
-    }
-
-    return await this.browser.newContext({
+  async createContext(
+    browser: Browser,
+    config: BrowserConfig
+  ): Promise<BrowserContext> {
+    return await browser.newContext({
       viewport: config.viewport ?? { width: 1280, height: 720 },
       ignoreHTTPSErrors: true,
     });
   }
 
-  async closeBrowser(): Promise<void> {
-    if (this.browser) {
-      await this.browser.close();
-    }
+  async createPage(config: BrowserConfig) {
+    const browser = await this.launchBrowser(config);
+    const context = await this.createContext(browser, config);
+    const page = await context.newPage();
+
+    return { browser, context, page };
   }
 }
 

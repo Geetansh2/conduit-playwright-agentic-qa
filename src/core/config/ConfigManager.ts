@@ -16,7 +16,7 @@ export class ConfigManager {
 
     const filePath = path.resolve(
       process.cwd(),
-      `resources/config/${env}.json`
+      `src/resources/config/${env}.json`
     );
 
     if (!fs.existsSync(filePath)) {

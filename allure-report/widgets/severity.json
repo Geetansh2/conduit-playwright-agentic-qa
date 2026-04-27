@@ -1,0 +1,1 @@
+[{"uid":"474361a979b3279e","name":"User login UI with wrong Creds","time":{"start":1777284264252,"stop":1777284266079,"duration":1827},"status":"failed","severity":"critical"},{"uid":"64e2cab415f593a9","name":"User login UI with correct Creds","time":{"start":1777284262249,"stop":1777284264244,"duration":1995},"status":"passed","severity":"critical"}]
