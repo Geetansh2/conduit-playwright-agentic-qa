@@ -15,12 +15,6 @@ export class OAuthStrategy implements AuthStrategy {
 
   async apply(headers: Record<string, string>) {
 
-    const token = await TokenManager.getToken(
-      this.request,
-      this.clientId,
-      this.clientSecret
-    );
-
-    headers['Authorization'] = `Bearer ${token}`;
+   
   }
 }
