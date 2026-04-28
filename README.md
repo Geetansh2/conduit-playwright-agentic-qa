@@ -234,9 +234,11 @@ npm (>= 9)
 Verify:
 
 node -v
+
 npm -v
 
 📥 Clone the Repository
+
 git clone https://github.com/Geetansh2/conduit-playwright-agentic-qa.git
 
 cd conduit-playwright-agentic-qa
@@ -271,11 +273,14 @@ Make sure the backend + frontend app is running locally:
 npm start
 
 Default URL:
+
 http://localhost:3000
 
 
 🧪 Run Tests
+
 Run All Tests
+
 npx playwright test
 
 # 📊 Allure Reporting
