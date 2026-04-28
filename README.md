@@ -1,4 +1,4 @@
-# 🚀 Conduit Playwright Agentic QA
+<img width="1910" height="1012" alt="Screenshot 2026-04-28 at 5 42 11 PM" src="https://github.com/user-attachments/assets/9816be65-d7bb-4364-b16f-b5ba32ca9942" /># 🚀 Conduit Playwright Agentic QA
 
 An agentic-first test automation framework** built using **Playwright + TypeScript** for the Conduit (Medium-style) application.
 
@@ -321,9 +321,12 @@ This framework integrates Allure for rich and debuggable test reporting.
 - Auto-generated cURL for failures
 - Severity, feature, and story tagging
 
-### 📸 Sample Report
+Sample reports:
+<img width="1898" height="1006" alt="Screenshot 2026-04-28 at 5 41 59 PM" src="https://github.com/user-attachments/assets/386e885d-35ca-4807-b169-e7feeb4b54ba" />
 
-![Allure Report](docs/images/allure-report.png)
+<img width="1910" height="1012" alt="Screenshot 2026-04-28 at 5 42 11 PM" src="https://github.com/user-attachments/assets/4e292cf1-1a92-4cc9-9c44-36945d389e64" />
+
+
 
 📁 A full sample report is included in the repository:  
 👉 [`/allure-report`](allure-report/)
