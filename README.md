@@ -296,11 +296,14 @@ new JWTAuthStrategy(request, {
 ```ts
 test("Create article", async ({ apiClient, request }) => {
 
-  const agent = new ArticleAgent(apiClient, request);
+ const articleAgent = new ArticleAgent(apiClient, authStrategy);
+  const testData = ArticleFactory.validArticle();
+  const article = await articleAgent.createAndGetValidArticle(testData);
 
-  const article = await agent.createValidArticle();
-
-  expect(article.slug).toBeTruthy();
+  expect(article.title).toBe(testData.title);
+  expect(article.description).toBe(testData.description);
+  expect(article.body).toContain('Playwright');
+  expect(article.author.username).toBeDefined();
 });
 ```
 

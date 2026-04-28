@@ -17,7 +17,6 @@ Traditional frameworks tightly couple tests with implementation details, which b
 
 The Agent Layer:
 
-* Reduces boilerplate in tests
 * Encapsulates decision-making (auth, retries, data)
 * Makes the framework **AI-friendly and extensible**
 
@@ -43,7 +42,6 @@ domain/
 ### ❌ Alternatives Considered
 
 * Layer-based structure (pages/, api/, utils/)
-* Monolithic service classes
 
 ### 🤔 Why This Decision
 
