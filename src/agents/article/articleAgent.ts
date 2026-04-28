@@ -17,6 +17,4 @@ export class ArticleAgent {
     return this.api.createAndGetArticle(data);
   }
 
-
-
 }
