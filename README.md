@@ -1,4 +1,4 @@
-<img width="1910" height="1012" alt="Screenshot 2026-04-28 at 5 42 11 PM" src="https://github.com/user-attachments/assets/9816be65-d7bb-4364-b16f-b5ba32ca9942" /># 🚀 Conduit Playwright Agentic QA
+# 🚀 Conduit Playwright Agentic QA
 
 An agentic-first test automation framework** built using **Playwright + TypeScript** for the Conduit (Medium-style) application.
 
