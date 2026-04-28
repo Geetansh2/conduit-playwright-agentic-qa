@@ -9,5 +9,13 @@ export class AuthAgent {
   constructor(client: APIClient) {
     this.api = new AuthApi(client);
   }
-  
+
+  async login(email: string, password: string){
+    return this.api.login(email, password)
+  }
+
+  async loginAndGetUser(email: string, password: string) {
+      return this.api.loginAndGetUser(email, password);
+    }
+
 }

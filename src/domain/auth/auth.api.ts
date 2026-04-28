@@ -19,14 +19,12 @@ export class AuthApi {
 
   constructor(private apiClient: APIClient) {}
 
-  // 🔹 Raw API (low-level)
   async login(email: string, password: string) {
     return this.apiClient.post(Endpoints.auth.login, {
       user: { email, password }
     });
   }
 
-  // 🔥 High-level (recommended for tests)
   async loginAndGetUser(
     email: string,
     password: string
