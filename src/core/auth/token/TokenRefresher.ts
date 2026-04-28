@@ -2,6 +2,7 @@
 
 import { APIRequestContext } from '@playwright/test';
 import { TokenInfo } from './TokenInfo';
+import { Endpoints } from '../../../endpoints/endpoints';
 export class TokenRefresher {
 
   static async refresh(
@@ -10,7 +11,8 @@ export class TokenRefresher {
     password: string
   ): Promise<TokenInfo> {
 
-    const response = await request.post('/api/users/login', {
+    // We can add retry using RetryExecutor.
+    const response = await request.post(Endpoints.auth.login, {
       data: {
         user: {
           email,
@@ -20,7 +22,7 @@ export class TokenRefresher {
     });
 
     if (response.status() !== 200) {
-      throw new Error('Token refresh failed');
+      throw new Error(`Token refresh failed: ${response.status()}`);
     }
 
     const body = await response.json();
