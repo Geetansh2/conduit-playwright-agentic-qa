@@ -221,33 +221,59 @@ CONDUIT-PLAYWRIGHT-AGENTIC-QA/
 ```
 
 ---
+🚀 Getting Started
 
-# 🧪 Running Tests
+Prerequisites
 
-## Install
+Make sure you have the following installed:
 
-```bash
+Node.js (>= 18)
+npm (>= 9)
+
+
+Verify:
+
+node -v
+npm -v
+
+📥 Clone the Repository
+git clone https://github.com/Geetansh2/conduit-playwright-agentic-qa.git
+cd conduit-playwright-agentic-qa
+
+📦 Install Dependencies
 npm install
+
+🎭 Install Playwright Browsers
 npx playwright install
-```
 
----
+⚙️ Setup Environment
 
-## Run All Tests
+Update configuration in:
 
-```bash
+resources/config/qa.json
+
+Example:
+
+{
+  "apiUrl": "http://localhost:3000",
+  "user": {
+    "email": "geetanshbhatia12@gamil.com",
+    "password": "12345"
+  }
+}
+▶️ Start the Application (System Under Test)
+
+Make sure the backend + frontend app is running locally:
+
+npm start
+
+Default URL:
+http://localhost:3000
+
+
+🧪 Run Tests
+Run All Tests
 npx playwright test
-```
-
----
-
-## Run Regression
-
-```bash
-npx playwright test --config=src/test-runners/regression.config.ts
-```
-
----
 
 # 📊 Allure Reporting
 

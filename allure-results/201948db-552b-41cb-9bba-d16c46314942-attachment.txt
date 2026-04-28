@@ -1,0 +1,7 @@
+[2026-04-28T12:53:53.391Z] [INFO] [API] POST http://localhost:3000/api/users/login
+[2026-04-28T12:53:53.391Z] [INFO] [BODY] {"user":{"email":"test@test.com","password":"Password123"}}
+[2026-04-28T12:53:53.391Z] [INFO] [CURL]
+curl -X POST 'http://localhost:3000/api/users/login' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  --data-raw '{"user":{"email":"test@test.com","password":"Password123"}}'
