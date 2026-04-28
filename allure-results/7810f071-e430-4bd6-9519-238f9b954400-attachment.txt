@@ -1,7 +1,0 @@
-[2026-04-27T12:42:56.344Z] [INFO] http://localhost:3000/api/users/login
-[2026-04-27T12:42:56.345Z] [INFO] {"user":{"email":"geetanshbhatia12@gmail.com","password":"12345"}}
-[2026-04-27T12:42:56.345Z] [INFO] curl -X POST 'http://localhost:3000/api/users/login' \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: */*' \
-  --data-raw '{"user":{"email":"geetanshbhatia12@gmail.com","password":"12345"}}'
-[2026-04-27T12:42:56.414Z] [INFO] ✅ Schema validation passed: API Response

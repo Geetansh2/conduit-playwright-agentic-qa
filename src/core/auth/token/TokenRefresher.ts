@@ -3,6 +3,8 @@
 import { APIRequestContext } from '@playwright/test';
 import { TokenInfo } from './TokenInfo';
 import { Endpoints } from '../../../endpoints/endpoints';
+import { ConfigManager } from '../../config/ConfigManager';
+
 export class TokenRefresher {
 
   static async refresh(
@@ -10,9 +12,10 @@ export class TokenRefresher {
     email: string,
     password: string
   ): Promise<TokenInfo> {
+    const baseUrl = ConfigManager.get("apiUrl");
 
     // We can add retry using RetryExecutor.
-    const response = await request.post(Endpoints.auth.login, {
+    const response = await request.post(baseUrl+Endpoints.auth.login, {
       data: {
         user: {
           email,

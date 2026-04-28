@@ -1,4 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","100","Login API valid user","API","Mon Apr 27 18:13:48 IST 2026","passed","Mon Apr 27 18:13:48 IST 2026","","api/auth/login.api.spec.ts","",""
-"","1497","User login UI with wrong Creds","UI","Mon Apr 27 18:13:51 IST 2026","failed","Mon Apr 27 18:13:53 IST 2026","","ui/auth/signIn.ui.spec.ts","",""
-"","2973","User login UI with correct Creds","UI","Mon Apr 27 18:13:48 IST 2026","passed","Mon Apr 27 18:13:51 IST 2026","","ui/auth/signIn.ui.spec.ts","",""

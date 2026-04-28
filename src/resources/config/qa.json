@@ -2,8 +2,8 @@
   "baseUrl": "http://localhost:4101",
   "apiUrl": "http://localhost:3000",
   "user": {
-    "email": "test@test.com",
-    "password": "Password123"
+    "email": "geetanshbhatia12@gmail.com",
+    "password": "12345"
   },
   "browser": "chromium",
   "headless": false,
