@@ -238,12 +238,15 @@ npm -v
 
 📥 Clone the Repository
 git clone https://github.com/Geetansh2/conduit-playwright-agentic-qa.git
+
 cd conduit-playwright-agentic-qa
 
 📦 Install Dependencies
+
 npm install
 
 🎭 Install Playwright Browsers
+
 npx playwright install
 
 ⚙️ Setup Environment
