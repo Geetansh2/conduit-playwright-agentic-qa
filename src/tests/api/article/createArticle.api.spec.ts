@@ -12,7 +12,8 @@ test('API: Create article successfully', async ({
   apiClient,
   allure,
   request,
-}) => {
+  }) => {
+    test.info().annotations.push({ type: 'tag', description: 'regression' });
   await allureMeta(
     allure,
     'API',
@@ -42,6 +43,7 @@ test('API: Create article should fail without authentication', async ({
   apiClient,
   allure,
 }) => {
+
   await allureMeta(
     allure,
     'API',

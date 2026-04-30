@@ -7,10 +7,10 @@ export default defineConfig({
     ["list"],
     ["allure-playwright"],
   ],
-
+  // fullyParallel: true, 
+  // workers: 8,
   use: {
     trace: "on-first-retry",
-    screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    screenshot: "only-on-failure"
   },
 });

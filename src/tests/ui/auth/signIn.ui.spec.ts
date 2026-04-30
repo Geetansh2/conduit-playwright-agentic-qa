@@ -7,7 +7,7 @@ import { allureMeta } from "../../../core/utils/AllureUtils";
 
 
 
-test("User login UI with correct Creds", async ({ page, allure }) => {
+test("User login UI with correct Creds @regression @ui", async ({ page, allure }) => {
   await allureMeta(allure,"UI", "LOGIN", "Authentication", "User Login - Valid Creds", "CRITICAL");
 
   const authPage = new AuthPage(page);
@@ -19,7 +19,7 @@ test("User login UI with correct Creds", async ({ page, allure }) => {
   await expect(page).toHaveURL(ConfigManager.get("baseUrl"));
 });
 
-test("User login UI with wrong Creds", async ({ page, allure }) => {
+test("User login UI with wrong Creds @regression @ui", async ({ page, allure }) => {
   await allureMeta(allure, "UI", "LOGIN", "Authentication", "User Login - Invalid Creds", "CRITICAL");
 
   const authPage = new AuthPage(page);

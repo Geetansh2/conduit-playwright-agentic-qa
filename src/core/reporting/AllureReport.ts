@@ -41,8 +41,16 @@ class AllureReport {
     label(LabelName.EPIC, name);
   }
 
+
   parentSuite(name: string){
     label(LabelName.PARENT_SUITE, name)
+  }
+  
+  subSuite(name: string){
+    label(LabelName.SUB_SUITE, name);
+  }
+  suite(name: string){
+    label(LabelName.SUITE, name);
   }
 }
 
