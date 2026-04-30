@@ -20,7 +20,7 @@ export class JWTAuthStrategy implements AuthStrategy {
   ) {}
 
   async apply(headers: Record<string, string>): Promise<void> {
-
+try{
     const token = await TokenManager.getToken(
       this.request,
       this.user.email,
@@ -28,5 +28,8 @@ export class JWTAuthStrategy implements AuthStrategy {
     );
 
     headers['Authorization'] = `${this.type} ${token}`;
+  }catch{
+    headers['Authorization'] =  `${this.type} {jahbfk}`;
   }
+}
 }

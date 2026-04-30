@@ -1,3 +1,7 @@
 "BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
 "0","LOGIN","0","Authentication","3","0","User Login - Valid Creds","0"
 "0","LOGIN","0","Authentication","3","0","User Login - Invalid Creds","0"
+"0","ARTICLE","1","Create","0","0","Create Article With invalid Auth","0"
+"0","ARTICLE","0","Create","1","0","Create Article Without Auth","0"
+"0","ARTICLE","0","Create","1","0","Create Article With invalid body","0"
+"0","ARTICLE","0","Create","1","0","Create Article","0"
