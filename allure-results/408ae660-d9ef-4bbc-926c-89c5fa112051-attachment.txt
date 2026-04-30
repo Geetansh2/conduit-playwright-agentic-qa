@@ -1,0 +1,9 @@
+[2026-04-30T17:36:20.536Z] [INFO] [API] POST http://localhost:3000/api/articles
+[2026-04-30T17:36:20.537Z] [INFO] [BODY] {"article":{"description":"Invalid article","body":"Missing required fields"}}
+[2026-04-30T17:36:20.537Z] [INFO] [CURL]
+curl -X POST 'http://localhost:3000/api/articles' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJnZWV0YW5zaCIsImV4cCI6MTc4Mjc1NDU4MCwiaWF0IjoxNzc3NTcwNTgwfQ.buuu3OALzTdFcptVnJWVd3NUVtp8qfk7-PazlBGLCBY' \
+  --data-raw '{"article":{"description":"Invalid article","body":"Missing required fields"}}'
+[2026-04-30T17:36:20.541Z] [INFO] [RESPONSE] Status: 500

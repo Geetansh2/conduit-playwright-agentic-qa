@@ -11,23 +11,27 @@ export class TokenManager {
     email: string,
     password: string
   ): Promise<string> {
+    try{
+      const cached = TokenCache.get(email);
 
-    const cached = TokenCache.get(email);
+      if (cached) {
+        return cached.token;
+      }
 
-    if (cached) {
-      return cached.token;
-    }
+      // 👇 delegated to refresher
+      const tokenInfo = await TokenRefresher.refresh(
+        request,
+        email,
+        password
+      );
 
-    // 👇 delegated to refresher
-    const tokenInfo = await TokenRefresher.refresh(
-      request,
-      email,
-      password
-    );
-
-    TokenCache.set(email, tokenInfo);
+      TokenCache.set(email, tokenInfo);
 
     return tokenInfo.token;
+    }
+    catch{
+       throw new Error(`Token failed for user: ${email}`);
+    }
   }
 
   static invalidate(email: string) {

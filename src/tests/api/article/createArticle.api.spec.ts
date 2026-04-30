@@ -1,12 +1,8 @@
 import { test, expect } from '../base/BaseTest';
-import { ArticleApi } from '../../../domain/article/article.api';
 import { allureMeta } from '../../../core/utils/AllureUtils';
-import { JWTAuthStrategy } from '../../../core/auth/strategies/JWTAuthStrategy';
 import { ArticleFactory } from '../../../data/factories/article.factory';
-
-import { ConfigManager } from '../../../core/config/ConfigManager';
-import { loginScenarios } from '../../../data/test-data/auth/signin.scenarios';
 import { ArticleAgent } from '../../../agents/article/articleAgent';
+import { AuthMode } from '../../../domain/auth/authEnum';
 
 test('API: Create article successfully', async ({
   apiClient,
@@ -23,12 +19,7 @@ test('API: Create article successfully', async ({
     'CRITICAL',
   );
 
-  const authStrategy = new JWTAuthStrategy(request, {
-    email: ConfigManager.get('user.email'),
-    password: ConfigManager.get('user.password'),
-  });
-
-  const articleAgent = new ArticleAgent(apiClient, authStrategy);
+  const articleAgent = new ArticleAgent(apiClient, request, AuthMode.VALID);
   const testData = ArticleFactory.validArticle();
   const article = await articleAgent.createAndGetValidArticle(testData);
 
@@ -42,6 +33,7 @@ test('API: Create article successfully', async ({
 test('API: Create article should fail without authentication', async ({
   apiClient,
   allure,
+  request
 }) => {
 
   await allureMeta(
@@ -54,7 +46,7 @@ test('API: Create article should fail without authentication', async ({
   );
 
   
-  const articleAgent = new ArticleAgent(apiClient);
+  const articleAgent = new ArticleAgent(apiClient, request, AuthMode.NONE);
   const testData = ArticleFactory.validArticle();
   const response = await articleAgent.createArticle(testData);
   expect(response.status()).toBe(401);
@@ -74,15 +66,10 @@ test('API: Create article should fail with invalid token', async ({
     'Create Article With invalid Auth',
     'CRITICAL',
   );
-  const authStrategy = new JWTAuthStrategy(request, {
-    email: loginScenarios.validUser.email,
-    password: loginScenarios.invalidUser.password,
-  });
-
-const articleAgent = new ArticleAgent(apiClient, authStrategy);
+const articleAgent = new ArticleAgent(apiClient, request, AuthMode.INVALID);
 const testData = ArticleFactory.validArticle();
 const response = await articleAgent.createArticle(testData);
-expect(response.status()).toBe(422);
+expect(response.status()).toBe(401);
 
 });
 
@@ -99,13 +86,8 @@ test('API: Create article should fail with invalid body', async ({
     'Create Article With invalid body',
     'CRITICAL',
   );
-  const authStrategy = new JWTAuthStrategy(request, {
-    email: loginScenarios.validUser.email,
-    password: loginScenarios.validUser.password,
-  });
- const articleAgent = new ArticleAgent(apiClient, authStrategy);
-  const testData = ArticleFactory.invalidArticle();
-
-  const response = await articleAgent.createArticle(testData);
+ const articleAgent = new ArticleAgent(apiClient, request, AuthMode.VALID);
+ const testData = ArticleFactory.invalidArticle();
+ const response = await articleAgent.createArticle(testData);
   expect(response.status()).toBe(500);
 });
