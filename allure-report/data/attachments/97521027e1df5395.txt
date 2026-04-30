@@ -1,0 +1,6 @@
+[2026-04-30T11:38:18.149Z] [INFO] Navigate to Login Page
+[2026-04-30T11:38:18.153Z] [INFO] BaseUrl: http://localhost:4101
+[2026-04-30T11:38:19.130Z] [INFO] Enter Email
+[2026-04-30T11:38:19.176Z] [INFO] Enter Password
+[2026-04-30T11:38:19.183Z] [INFO] Click SignIn Button Button
+[2026-04-30T11:38:19.225Z] [INFO] Get Error Message
