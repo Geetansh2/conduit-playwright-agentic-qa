@@ -7,6 +7,6 @@ export const loginScenarios = {
   invalidUser: {
     email: "test@test.com",
     password: "Password123",
-    expectedError: "email password is invalid",
+    expectedError: "email or password is invalid",
   },
 };

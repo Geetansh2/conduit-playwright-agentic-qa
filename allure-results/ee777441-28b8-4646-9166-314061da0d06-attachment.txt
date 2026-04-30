@@ -1,9 +1,0 @@
-[2026-04-28T09:22:05.621Z] [INFO] [API] POST http://localhost:3000/api/articles
-[2026-04-28T09:22:05.621Z] [INFO] [BODY] {"article":{"title":"API Automation 1777368125621","description":"End-to-end API validation","body":"This article is about Playwright API automation","tagList":[]}}
-[2026-04-28T09:22:05.621Z] [INFO] [CURL]
-curl -X POST 'http://localhost:3000/api/articles' \
-  -H 'Accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJnZWV0YW5zaCIsImV4cCI6MTc4MjU1MjEyNSwiaWF0IjoxNzc3MzY4MTI1fQ.dCrm5oN5FFXk77CE7lZOSUbnEkg2yxdubY9upAIVzXs' \
-  --data-raw '{"article":{"title":"API Automation 1777368125621","description":"End-to-end API validation","body":"This article is about Playwright API automation","tagList":[]}}'
-[2026-04-28T09:22:05.820Z] [INFO] [RESPONSE] Status: 200

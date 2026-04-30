@@ -5,25 +5,13 @@ import { allureReport } from "../../../core/reporting/AllureReport";
 
 
 type Fixtures = {
-  page: any;
    allure: typeof allureReport;
 
 };
 
 export const test = base.extend<Fixtures>({
-  page: async ({}, use) => {
-
-    const { browser, context, page } = await browserFactory.createPage({
-      browserType: ConfigManager.get('browser'),
-      headless: Boolean(ConfigManager.get('headless')),
-    });
-
-    await use(page);
-
-    await context.close();
-    await browser.close();
-  },
-    allure: async ({}, use) => {
+    allure: async ({}, use, testInfo) => {
+    await allureReport.parentSuite(`Browser: ${testInfo.project.name}`);
     await use(allureReport);
   
   },

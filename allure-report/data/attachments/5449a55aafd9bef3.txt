@@ -1,9 +1,0 @@
-[2026-04-28T11:11:18.989Z] [INFO] [API] POST http://localhost:3000/api/users/login
-[2026-04-28T11:11:18.990Z] [INFO] [BODY] {"user":{"email":"geetanshbhatia12@gmail.com","password":"12345"}}
-[2026-04-28T11:11:18.990Z] [INFO] [CURL]
-curl -X POST 'http://localhost:3000/api/users/login' \
-  -H 'Accept: application/json' \
-  -H 'Content-Type: application/json' \
-  --data-raw '{"user":{"email":"geetanshbhatia12@gmail.com","password":"12345"}}'
-[2026-04-28T11:11:19.124Z] [INFO] [RESPONSE] Status: 200
-[2026-04-28T11:11:19.139Z] [INFO] ✅ Schema validation passed: API Response
