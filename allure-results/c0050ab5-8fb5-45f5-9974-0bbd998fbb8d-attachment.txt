@@ -1,0 +1,8 @@
+[2026-04-30T17:40:05.733Z] [INFO] [API] POST http://localhost:3000/api/articles
+[2026-04-30T17:40:05.733Z] [INFO] [BODY] {"article":{"title":"API Automation 1777570805733","description":"End-to-end API validation","body":"This article is about Playwright API automation","tagList":[]}}
+[2026-04-30T17:40:05.733Z] [INFO] [CURL]
+curl -X POST 'http://localhost:3000/api/articles' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  --data-raw '{"article":{"title":"API Automation 1777570805733","description":"End-to-end API validation","body":"This article is about Playwright API automation","tagList":[]}}'
+[2026-04-30T17:40:05.889Z] [INFO] [RESPONSE] Status: 401

@@ -13,7 +13,7 @@ export class AuthHelper {
 
   static invalidUser(request: APIRequestContext) {
     return new JWTAuthStrategy(request, {
-      email: ConfigManager.get("user.email"),
+      email: "testung",
       password: "wrong_password",
     });
   }
